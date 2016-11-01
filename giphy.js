@@ -48,7 +48,8 @@ window.GiphySearchController = (() => {
             /*randomButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/gifs/random", {
                     api_key: "dc6zaTOxFJmzC",
-                    tag: searchTerm.val()
+                    tag: searchTerm.val(),
+                    rating: "pg-13"
                 }).done((result) => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
@@ -56,12 +57,13 @@ window.GiphySearchController = (() => {
                                 $("<img/>").attr({
                                     src: image.fixed_width_small_url,
                                     alt: image.image_original_url
-                                })
+                                }).addClass("img-thumbnail bg-primary")
                             );
                         })
                     );
                 });
             });*/
+
             stickersButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/stickers/search", {
                     q: searchTerm.val(),
@@ -103,7 +105,6 @@ window.GiphySearchController = (() => {
 
             searchTerm.bind("input", () => {
                 searchButton.prop("disabled", !searchTerm.val());
-                randomButton.prop("disabled", !searchTerm.val());
                 stickersButton.prop("disabled", !searchTerm.val());
             });
         }
