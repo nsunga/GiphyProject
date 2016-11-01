@@ -19,6 +19,7 @@ window.GiphySearchController = (() => {
             var searchTerm = $("#search-term");
             var randomButton = $("#random-button");
             var trendingButton = $("#trending-button");
+            var stickersButton = $("#animated-stickers");
             var imageResultContainer = $(".image-result-container");
 
             searchButton.click(() => {
@@ -61,6 +62,24 @@ window.GiphySearchController = (() => {
                     );
                 });
             });*/
+            stickersButton.click(() => {
+                $.getJSON("http://api.giphy.com/v1/stickers/search", {
+                    q: searchTerm.val(),
+                    rating: "pg-13",
+                    api_key: "dc6zaTOxFJmzC"
+                }).done((result) => {
+                    imageResultContainer.empty().append(
+                        result.data.map((image) => {
+                            return $("<div></div>").addClass("col-xs-2").append(
+                                $("<img/>").attr({
+                                    src: image.images.fixed_width.url,
+                                    alt: image.source_tld
+                                }).addClass("img-thumbnail bg-primary")
+                            );
+                        })
+                    );
+                });
+            });
 
             trendingButton.click(() => {
                 // The getJSON function initiates a connection to the web service.
@@ -82,10 +101,10 @@ window.GiphySearchController = (() => {
                 });
             });
 
-
             searchTerm.bind("input", () => {
                 searchButton.prop("disabled", !searchTerm.val());
                 randomButton.prop("disabled", !searchTerm.val());
+                stickersButton.prop("disabled", !searchTerm.val());
             });
         }
     };
