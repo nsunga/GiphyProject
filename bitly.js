@@ -8,15 +8,15 @@ window.BitlyShorten = (() => {
             var linkResultContainer = $(".link-result-container");
 
             shortenButton.click(() => {
-                $.getJSON("http://api-ssl.bitly.com/v3/shorten", {
+                $.getJSON("https://api-ssl.bitly.com/v3/shorten", {
                     access_token: "35a657c20e2b7b41fb8d72ddd04a4f7e61a640cf", 
                     longUrl: longLink.val()
                 }).done((result) => {
                     linkResultContainer.empty().append(
-                        result.data.map((link) => {
-                            return $("<p></p>");
-                        })
-                    );
+                        $("<div></div>").addClass("well").append(
+                            $("<p></p>").append(result.data.url)
+                        )
+                    )
                 });
             });
 

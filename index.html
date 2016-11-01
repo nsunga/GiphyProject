@@ -45,25 +45,28 @@
       </div>
     </div>
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="myModalLabel">Shorten Link!</h4>
-          </div>
-          <div class="modal-body">
-            <div class="form-group">
-              <label for="long-link">Enter a link:</label>
-              <input type="text" class="form-control" id="long-link">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Shorten Link!</h4>
             </div>
-
-            <div class="form-group">
-              <button id="shorten-button" class="btn btn-default" disabled>Shorten Link!</button>
-              <div class="link-result-container">
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="long-link">Enter a link:</label>
+                <input type="text" class="form-control" id="long-link">
               </div>
-           </div>
-         </div>
+
+              <div class="form-group">
+                <button id="shorten-button" class="btn btn-default" disabled>Shorten Link!</button>
+              </div>
+
+              <div class="form-group">
+                <div class="link-result-container">
+                </div>
+              </div>
+            </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
