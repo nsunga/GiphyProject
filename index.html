@@ -22,16 +22,46 @@
 
       <div class="form-group">
         <button id="search-button" class="btn btn-default" disabled>Search Giphy!</button>
+        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Shorten Link!</button>
       </div>
 
       <div class="row image-result-container">
       </div>
     </div>
 
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Shorten Link!</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="long-link">Enter a link:</label>
+              <input type="text" class="form-control" id="long-link">
+            </div>
+
+            <div class="form-group">
+              <button id="shorten-button" class="btn btn-default" disabled>Shorten Link!</button>
+              <div class="link-result-container">
+              </div>
+           </div>
+         </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="giphy-sample.js"></script>
+    <script src="bitly.js"></script>
 
+    <script>window.BitlyShorten.init()</script>
     <script>window.GiphySearchController.init()</script>
   </body>
 </html>
