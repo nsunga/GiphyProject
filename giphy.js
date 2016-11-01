@@ -33,11 +33,12 @@ window.GiphySearchController = (() => {
                     // appends it to the element(s) with the class image-result-container.
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
-                            return $("<div></div>").addClass("col-xs-2").append(
+                            return $("<div></div>").addClass("thumbnail col-xs-3").append([
                                 $("<img/>").attr({
                                     src: image.images.fixed_width.url,
                                     alt: image.source_tld
-                                }).addClass("img-thumbnail bg-primary")
+                                }),
+                                $("<div></div>").addClass("caption").append(image.url)]
                             );
                         })
                     );
