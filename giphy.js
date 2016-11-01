@@ -31,24 +31,21 @@ window.GiphySearchController = (() => {
             });
 
             //RANDOM DOES NOT WORK
-            /*randomButton.click(() => {
+            randomButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/gifs/random", {
                     api_key: "dc6zaTOxFJmzC",
                     tag: searchTerm.val(),
                     rating: "pg-13"
                 }).done((result) => {
                     imageResultContainer.empty().append(
-                        result.data.map((image) => {
-                            return $("<div></div>").addClass("col-xs-2").append(
-                                $("<img/>").attr({
-                                    src: image.fixed_width_small_url,
-                                    alt: image.image_original_url
-                                }).addClass("img-thumbnail bg-primary")
-                            );
-                        })
+                        $("<div></div>").append(
+                            $("<img/>").attr({
+                                src: result.datai.mage_url
+                            }).addClass("img-thumbnail bg-primary")
+                        )
                     );
                 });
-            });*/
+            });
 
             stickersButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/stickers/search", {
