@@ -4,15 +4,27 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Giphy API Front End Sample</title>
+    <title>Giphy API Front End</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
   </head>
   <body>
+    <style>
+      h1 {
+        font-family: Lobster, Monospace;
+      }
+
+      button {
+        padding-bottom: 10px;
+      }
+    </style>
     <div class="container">
       <div class="row">
-        <div class="col-xs-12"><h3>Giph Me!</h3></div>
+        <div class="col-xs-12 text-primary"><h1>Giph Me!</h1></div>
       </div>
 
       <div class="form-group">
@@ -21,8 +33,12 @@
       </div>
 
       <div class="form-group">
-        <button id="search-button" class="btn btn-default" disabled>Search Giphy!</button>
-        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Shorten Link!</button>
+        <div class="col-xs-12">
+          <button id="search-button" class="btn btn-primary" disabled><i class="fa fa-paper-plane"></i> Search Giphy</button>
+          <button id="random-button" class="btn btn-primary" disabled><i class="fa fa-random"></i> Random Gif</button>
+          <button id="trending-button" class="btn btn-primary"><i class="fa fa-random"></i> Trending Gifs</button>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Shorten Link!</button>
+        </div>
       </div>
 
       <div class="row image-result-container">
@@ -60,6 +76,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="giphy-sample.js"></script>
     <script src="bitly.js"></script>
+    <script src="giphy.js"></script>
 
     <script>window.BitlyShorten.init()</script>
     <script>window.GiphySearchController.init()</script>
