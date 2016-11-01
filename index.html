@@ -1,39 +1,37 @@
 <!doctype html>
 <html>
-	<head>
-    	<meta charset="UTF-8" />
-    	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    	<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<title>Mitchell And Nick</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giphy API Front End Sample</title>
 
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
-    </head>
-    <body>
-    	<div class="container">
-    		<div class="row">
-    			<div class="col-xs-12">
-    				<h1 class="text-primary" align="left">This is our title</h1>
-    			</div>
-    		</div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12"><h3>Giph Me!</h3></div>
+      </div>
 
-    		<div class="row">
-    			<div class="col-xs-8">
-    				<input id="search-bar" type="text" class="form-control" placeholder="Search" required>
-    			</div>
-    			<div class="col-xs-4">
-    				<button id="search-button" type="submit" class="btn btn-primary"><i class="fa fa-paper-plane"></i>Submit</button>
-    			</div>
-    		</div>
-    	</div>
+      <div class="form-group">
+        <label for="search-term">Enter a search term:</label>
+        <input type="text" class="form-control" id="search-term">
+      </div>
 
-    	<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-      <script src="imgur.js"></script>
+      <div class="form-group">
+        <button id="search-button" class="btn btn-default" disabled>Search Giphy!</button>
+      </div>
 
-      <script>window.ImgurSubredditSearch.init()</script>
+      <div class="row image-result-container">
+      </div>
+    </div>
 
-    </body>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="giphy-sample.js"></script>
+
+    <script>window.GiphySearchController.init()</script>
+  </body>
 </html>
-<!---->
