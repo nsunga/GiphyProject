@@ -153,7 +153,7 @@ describe("Giphy search", function () {
         });
 
         it("should trigger a Giphy search when the Stickers button is clicked", () => {
-            expect(request.url).toBe("http://api.giphy.com/v1/stickers/search?q=cat&api_key=dc6zaTOxFJmzC");
+            expect(request.url).toBe("http://api.giphy.com/v1/stickers/search?q=hello&rating=pg-13&api_key=dc6zaTOxFJmzC");
         });
 
         it("should populate the image container when search results arrive", () => {
