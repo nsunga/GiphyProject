@@ -16,7 +16,7 @@ window.BitlyShorten = (() => {
                         $("<div></div>").addClass("well").append(
                             $("<p></p>").append(result.data.url)
                         )
-                    )
+                    );
                 });
             });
 

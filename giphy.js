@@ -30,7 +30,7 @@ window.GiphySearchController = (() => {
                 });
             });
 
-            //RANDOM DOES NOT WORK
+            // RANDOM DOES NOT WORK
             randomButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/gifs/random", {
                     api_key: "dc6zaTOxFJmzC",
