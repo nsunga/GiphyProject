@@ -17,11 +17,11 @@ describe("Giphy search example", function () {
         expect($("#search-button").prop("disabled")).toBe(true);
     });
 
-    it("should start with a disabled search button", () => {
+    it("should start with a disabled Animated Stickers button", () => {
         expect($("#animated-stickers").prop("disabled")).toBe(true);
     });
 
-    it("should start with a disabled search button", () => {
+    it("should start with a disabled I'm Feeling Lucky! button", () => {
         expect($("#translate-button").prop("disabled")).toBe(true);       
     });
 
