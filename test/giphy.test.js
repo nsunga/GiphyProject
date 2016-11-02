@@ -22,7 +22,7 @@ describe("Giphy search", function () {
     });
 
     it("should start with a disabled I'm Feeling Lucky! button", () => {
-        expect($("#translate-button").prop("disabled")).toBe(true);       
+        expect($("#translate-button").prop("disabled")).toBe(false);       
     });
 
     describe("search button", () => {
@@ -153,7 +153,7 @@ describe("Giphy search", function () {
         });
 
         it("should trigger a Giphy search when the Stickers button is clicked", () => {
-            expect(request.url).toBe("http://api.giphy.com/v1/stickers/search?q=hello&rating=pg-13&api_key=dc6zaTOxFJmzC");
+            expect(request.url).toBe("http://api.giphy.com/v1/stickers/search?q=hello&api_key=dc6zaTOxFJmzC");
         });
 
         it("should populate the image container when search results arrive", () => {
@@ -198,7 +198,7 @@ describe("Giphy search", function () {
         });
 
         it("should trigger a Giphy search when the Translate button is clicked", () => {
-            expect(request.url).toBe("http://api.giphy.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=hello&rating=pg-13");
+            expect(request.url).toBe("http://api.giphy.com/v1/stickers/translate?s=hello&api_key=dc6zaTOxFJmzC");
         });
 
         it("should populate the image container when search results arrive", () => {
@@ -209,14 +209,59 @@ describe("Giphy search", function () {
             request.respondWith({
                 status: 200,
                 responseText: JSON.stringify({
-                    data: {
+                    data: [{
                         source_tld: "gifbay.com",
                         images: {
-                            original: {
+                            fixed_width: {
                                 url: "http://media1.giphy.com/media/11eZCNibwDFx6w/200w.gif"
                             }
                         }
-                    }
+                    }]
+                })
+            });
+
+            expect($(".image-result-container").children().length).toBe(1);
+            // We can go even further by examining the resulting element(s) and expecting their content to match the
+            // mock response, but we will leave this as "further work" for now.
+        });
+    });
+
+    describe("API calls", () => {
+        var request;
+
+        beforeEach(() => {
+            jasmine.Ajax.install();
+
+            $("#search-term").val();
+            $("#translate-button").click();
+
+            request = jasmine.Ajax.requests.mostRecent();
+        });
+
+        afterEach(() => {
+            jasmine.Ajax.uninstall();
+        });
+
+        it("should trigger a Giphy search when the Translate button is clicked", () => {
+            expect(request.url).toBe("http://api.giphy.com/v1/gifs/trending?api_key=dc6zaTOxFJmzC");
+        });
+
+        it("should populate the image container when search results arrive", () => {
+            expect($(".image-result-container").children().length).toBe(0);
+
+            // To manage size, we supply a mock response that contains _only_ what the app will need. This does mean
+            // that we need to revise the mock response if our app starts using more (or different) data.
+            request.respondWith({
+                status: 200,
+                responseText: JSON.stringify({
+                    data: [{
+                        source_tld: "televandalist.com",
+                        images: {
+                            fixed_width: {
+                                url: "http://media0.giphy.com/media/op7uqYWBm3R04/200w.gif"
+                            }
+                        }
+                    }]
                 })
             });
 
