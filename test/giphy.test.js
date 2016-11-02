@@ -153,7 +153,7 @@ describe("Giphy search", function () {
         });
 
         it("should trigger a Giphy search when the Stickers button is clicked", () => {
-            expect(request.url).toBe("http://api.giphy.com/v1/stickers/search?q=hello&api_key=dc6zaTOxFJmzC");
+            expect(request.url).toBe("http://api.giphy.com/v1/stickers/search?q=hello&rating=pg-13&api_key=dc6zaTOxFJmzC");
         });
 
         it("should populate the image container when search results arrive", () => {
@@ -197,8 +197,8 @@ describe("Giphy search", function () {
             jasmine.Ajax.uninstall();
         });
 
-        it("should trigger a Giphy search when the Stickers button is clicked", () => {
-            expect(request.url).toBe("http://api.giphy.com/v1/stickers/translate?s=hello&api_key=dc6zaTOxFJmzC");
+        it("should trigger a Giphy search when the Translate button is clicked", () => {
+            expect(request.url).toBe("http://api.giphy.com/v1/gifs/translate?api_key=dc6zaTOxFJmzC&s=hello&rating=pg-13");
         });
 
         it("should populate the image container when search results arrive", () => {
@@ -209,14 +209,14 @@ describe("Giphy search", function () {
             request.respondWith({
                 status: 200,
                 responseText: JSON.stringify({
-                    data: [{
+                    data: {
                         source_tld: "gifbay.com",
                         images: {
-                            fixed_width: {
+                            original: {
                                 url: "http://media1.giphy.com/media/11eZCNibwDFx6w/200w.gif"
                             }
                         }
-                    }]
+                    }
                 })
             });
 
