@@ -1,4 +1,4 @@
-describe("Giphy search ", function () {
+describe("Giphy search", function () {
     beforeEach(() => {
         fixture.setBase("test");
         fixture.load("search.fixture.html");
@@ -188,7 +188,7 @@ describe("Giphy search ", function () {
             jasmine.Ajax.install();
 
             $("#search-term").val("hello");
-            $("#animated-stickers").click();
+            $("#translate-button").click();
 
             request = jasmine.Ajax.requests.mostRecent();
         });
