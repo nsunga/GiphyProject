@@ -46,7 +46,6 @@ window.GiphySearchController = (() => {
                     );
                 });
             });
-
             // RANDOM DOES NOT WORK as of 11/01
             randomButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/gifs/random", {
