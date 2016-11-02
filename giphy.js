@@ -5,6 +5,7 @@ window.GiphySearchController = (() => {
         init: () => {
             var searchButton = $("#search-button");
             var searchTerm = $("#search-term");
+            var translateButton = $("#translate-button");
             var randomButton = $("#random-button");
             var trendingButton = $("#trending-button");
             var stickersButton = $("#animated-stickers");
@@ -28,8 +29,25 @@ window.GiphySearchController = (() => {
                     );
                 });
             });
+            translateButton.click(() => {
+                $.getJSON("http://api.giphy.com/v1/gifs/translate", {
+                    api_key: "dc6zaTOxFJmzC",
+                    s: searchTerm.val(),
+                    rating: "pg-13"
+                }).done((result) => {
+                    imageResultContainer.empty().append(
+                        $("<div></div>").addClass("col-xs-12").append(
+                            $("<p></p>").addClass("text-center").append(
+                                $("<img/>").attr({
+                                    src: result.data.images.original.url
+                                }).addClass("img-thumbnail bg-primary")
+                            )
+                        )
+                    );
+                });
+            });
 
-            //RANDOM DOES NOT WORK
+            //RANDOM DOES NOT WORK as of 11/01
             randomButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/gifs/random", {
                     api_key: "dc6zaTOxFJmzC",
@@ -37,10 +55,12 @@ window.GiphySearchController = (() => {
                     rating: "pg-13"
                 }).done((result) => {
                     imageResultContainer.empty().append(
-                        $("<div></div>").append(
-                            $("<img/>").attr({
-                                src: result.datai.mage_url
-                            }).addClass("img-thumbnail bg-primary")
+                        $("<div></div>").addClass("col-xs-12").append(
+                            $("<p></p>").addClass("text-center").append(
+                                $("<img/>").attr({
+                                    src: result.data.image_url
+                                }).addClass("img-thumbnail bg-primary")
+                            )
                         )
                     );
                 });
@@ -86,6 +106,7 @@ window.GiphySearchController = (() => {
             searchTerm.bind("input", () => {
                 searchButton.prop("disabled", !searchTerm.val());
                 stickersButton.prop("disabled", !searchTerm.val());
+                translateButton.prop("disabled", !searchTerm.val());
             });
         }
     };
