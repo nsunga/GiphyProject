@@ -1,4 +1,4 @@
-describe("Giphy search example", function () {
+describe("Giphy search ", function () {
     beforeEach(() => {
         fixture.setBase("test");
         fixture.load("search.fixture.html");
@@ -15,8 +15,8 @@ describe("Giphy search example", function () {
 
     it("should start with a disabled search button", () => {
         expect($("#search-button").prop("disabled")).toBe(true);
- 		expect($("#animated-stickers").prop("disabled")).toBe(true);
- 		expect($("#translate-button").prop("disabled")).toBe(true);       
+        expect($("#animated-stickers").prop("disabled")).toBe(true);
+        expect($("#translate-button").prop("disabled")).toBe(true);       
     });
 
     describe("search button", () => {
