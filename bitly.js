@@ -10,7 +10,7 @@ window.BitlyShorten = (() => {
             shortenButton.click(() => {
                 $.getJSON("https://api-ssl.bitly.com/v3/shorten", {
                     access_token: "35a657c20e2b7b41fb8d72ddd04a4f7e61a640cf", 
-                    longUrl: longLink.val()
+                    longUrl: ("http://").concat(longLink.val())
                 }).done((result) => {
                     linkResultContainer.empty().append(
                         $("<div></div>").addClass("well").append(
