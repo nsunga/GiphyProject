@@ -15,8 +15,14 @@ describe("Giphy search example", function () {
 
     it("should start with a disabled search button", () => {
         expect($("#search-button").prop("disabled")).toBe(true);
- 		expect($("#animated-stickers").prop("disabled")).toBe(true);
- 		expect($("#translate-button").prop("disabled")).toBe(true);       
+    });
+
+    it("should start with a disabled search button", () => {
+        expect($("#animated-stickers").prop("disabled")).toBe(true);
+    });
+
+    it("should start with a disabled search button", () => {
+        expect($("#translate-button").prop("disabled")).toBe(true);       
     });
 
     describe("search button", () => {
