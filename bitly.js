@@ -13,8 +13,8 @@ window.BitlyShorten = (() => {
                     longUrl: longLink.val()
                 }).done((result) => {
                     linkResultContainer.empty().append(
-                        $("<div></div>").addClass("well").append(
-                            $("<p></p>").append(result.data.url)
+                        $("<div></div>").append(
+                            $("<pre></pre>").append(result.data.url)
                         )
                     );
                 });
