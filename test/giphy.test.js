@@ -15,6 +15,8 @@ describe("Giphy search example", function () {
 
     it("should start with a disabled search button", () => {
         expect($("#search-button").prop("disabled")).toBe(true);
+ 		expect($("#animated-stickers").prop("disabled")).toBe(true);
+ 		expect($("#translate-button").prop("disabled")).toBe(true);       
     });
 
     describe("search button", () => {
@@ -36,6 +38,50 @@ describe("Giphy search example", function () {
         it("should be disabled when the search field is blank", () => {
             searchTerm.val("").trigger("input");
             expect(searchButton.prop("disabled")).toBe(true);
+        });
+    });
+
+    describe("translate button", () => {
+        var searchTerm;
+        var translateButton;
+
+        beforeEach(() => {
+            searchTerm = $("#search-term");
+            translateButton = $("#translate-button");
+        });
+
+        it("should be enabled when the search field is not blank", () => {
+            // Programmatic changes to elements do not trigger events on their own, so in unit tests
+            // we need to trigger those programmatically as well.
+            searchTerm.val("i can haz unit tests").trigger("input");
+            expect(translateButton.prop("disabled")).toBe(false);
+        });
+
+        it("should be disabled when the search field is blank", () => {
+            searchTerm.val("").trigger("input");
+            expect(translateButton.prop("disabled")).toBe(true);
+        });
+    });
+
+    describe("animated stickers button", () => {
+        var searchTerm;
+        var stickersButton;
+
+        beforeEach(() => {
+            searchTerm = $("#search-term");
+            stickersButton = $("#animated-stickers");
+        });
+
+        it("should be enabled when the search field is not blank", () => {
+            // Programmatic changes to elements do not trigger events on their own, so in unit tests
+            // we need to trigger those programmatically as well.
+            searchTerm.val("i can haz unit tests").trigger("input");
+            expect(stickersButton.prop("disabled")).toBe(false);
+        });
+
+        it("should be disabled when the search field is blank", () => {
+            searchTerm.val("").trigger("input");
+            expect(stickersButton.prop("disabled")).toBe(true);
         });
     });
 
