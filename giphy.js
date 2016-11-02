@@ -18,12 +18,11 @@ window.GiphySearchController = (() => {
                 }).done((result) => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
-                            return $("<div></div>").addClass("thumbnail col-xs-3").append([
+                            return $("<div></div>").addClass("col-xs-2").append(
                                 $("<img/>").attr({
                                     src: image.images.fixed_width.url,
                                     alt: image.source_tld
-                                }),
-                                $("<div></div>").addClass("caption").append(image.url)]
+                                }).addClass("img-thumbnail bg-primary")
                             );
                         })
                     );
@@ -68,7 +67,8 @@ window.GiphySearchController = (() => {
 
             trendingButton.click(() => {
                 $.getJSON("http://api.giphy.com/v1/gifs/trending", {
-                    api_key: "dc6zaTOxFJmzC"
+                    api_key: "dc6zaTOxFJmzC",
+                    rating: "pg-13"
                 }).done((result) => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
