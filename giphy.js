@@ -19,7 +19,7 @@ window.GiphySearchController = (() => {
                 }).done((result) => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
-                            return $("<div></div>").addClass("col-xs-2").append(
+                            return $("<div></div>").addClass("col-lg-2 col-md-3 col-sm-4 col-xs-6").append(
                                 $("<img/>").attr({
                                     src: image.images.fixed_width.url,
                                     alt: image.source_tld
@@ -74,7 +74,7 @@ window.GiphySearchController = (() => {
                 }).done((result) => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
-                            return $("<div></div>").addClass("col-xs-2").append(
+                            return $("<div></div>").addClass("col-lg-2 col-md-3 col-sm-4 col-xs-6]").append(
                                 $("<img/>").attr({
                                     src: image.images.fixed_width.url,
                                     alt: image.source_tld
@@ -92,7 +92,7 @@ window.GiphySearchController = (() => {
                 }).done((result) => {
                     imageResultContainer.empty().append(
                         result.data.map((image) => {
-                            return $("<div></div>").addClass("col-xs-2").append(
+                            return $("<div></div>").addClass("col-lg-2 col-md-3 col-sm-4 col-xs-6").append(
                                 $("<img/>").attr({
                                     src: image.images.fixed_width.url,
                                     alt: image.source_tld
