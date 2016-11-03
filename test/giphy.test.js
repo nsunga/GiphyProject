@@ -25,10 +25,6 @@ describe("Giphy search", function () {
         expect($("#translate-button").prop("disabled")).toBe(true);       
     });
 
-    it("should start with a disabled I'm Feeling Lucky! button", () => {
-        expect($("#trending-button").prop("disabled")).toBe(false);       
-    });
-
     describe("search button", () => {
         var searchTerm;
         var searchButton;
